@@ -7,3 +7,4 @@ Planned features:
 
 Planning to uses a simulated real-time feed of stock prices. 
 
+**STATUS:** work in progress...
