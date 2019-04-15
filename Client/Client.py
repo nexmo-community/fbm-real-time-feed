@@ -1,5 +1,4 @@
-# https://github.com/jpadilla/pyjwt -- pip3 install PyJWT
-import jwt 
+import jwt # https://github.com/jpadilla/pyjwt -- pip3 install PyJWT
 import time
 import json
 import requests
@@ -8,14 +7,15 @@ from pprint import pprint
 
 class Client:
 
-    def __init__(self, app_id, filename, expiry):
+    expiry = 1*60*60 # JWT expires after one hour (default is 15 minutes)
+
+    def __init__(self, app_id, filename):
         
         f = open(filename, 'r')
         self.private_key = f.read()
         f.close()
 
         self.app_id = app_id
-        self.expiry = expiry
         
         return
 
@@ -63,3 +63,4 @@ class Client:
         r = requests.post('https://api.nexmo.com/v0.1/messages', headers=headers, data=data_body)
         j = r.json()
         pprint(j)
+        return
