@@ -10,8 +10,6 @@ prices = {
 }
 
 users = [] # array of registered users
-nexmo = {}
-nexmo['number'] = sys.argv[2]
 tic_count = 0
 
 NEXMO_APP_ID = sys.argv[1]
