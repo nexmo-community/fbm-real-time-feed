@@ -10,5 +10,6 @@ Planning to uses a **simulated** real-time feed of stock prices.
 
 * Client tested with FBM, SMS
 * Real-time feed working on FBM
+* Real-time feed working on SMS
 
 ---
