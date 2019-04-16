@@ -63,11 +63,11 @@ def proc_inbound_msg(channel_type, data):
         # Viber does not support inbound messages
         print("ERROR: unrecognized channel type")
         
-    if 'MSFT' in msg_text:
+    if 'msft' in msg_text.lower():
         user['symbol'] = "MSFT"
         msg = "Registered for MSFT data."
         users.append(user)
-    elif 'GOOGL' in msg_text:
+    elif 'googl' in msg_text.lower():
         user['symbol'] = "GOOGL"
         msg = "Registered for GOOGL data."
         users.append(user)
