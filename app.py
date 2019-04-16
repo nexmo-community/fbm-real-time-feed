@@ -9,7 +9,8 @@ update_users()
 @app.route('/webhooks/inbound', methods=['POST'])
 def inbound_message():
     print ("** inbound_message **")
-    proc_inbound_msg(request.get_json())
+    data = request.get_json()
+    proc_inbound_msg(data['from']['type'], data)
     return ("inbound_message", 200)
 
 @app.route('/webhooks/status', methods=['POST'])
@@ -23,10 +24,7 @@ def message_status():
 def inbound_sms():
     print ("** inbound_sms **")
     values = request.values
-    for k, v in values.items():
-        print(k, v)
-    user['sms'] = values['msisdn']
-    print("User phone: %s" % user['sms'])
+    proc_inbound_msg('sms', values)
     return ("inbound_sms", 200)
 
 @app.route('/webhooks/delivery-receipt', methods=['POST'])

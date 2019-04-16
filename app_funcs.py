@@ -35,15 +35,17 @@ def update_users():
         client.send_message(user['type'], user['to'], user['from'], prices[symbol][tic_count])
     return
 
-def proc_inbound_msg(data):
+def proc_inbound_msg(channel_type, data):
 
     global nexmo
     global users
 
     user = {}
-
-    channel_type = data['from']['type']
-    msg_text = data['message']['content']['text']
+    
+    if channel_type == "sms":
+        msg_text = data['text']
+    else:
+        msg_text = data['message']['content']['text']
 
     if channel_type == "messenger":
         user['type'] = channel_type
@@ -53,6 +55,10 @@ def proc_inbound_msg(data):
         user['type'] = channel_type
         user['from'] = data['from']['number']
         user['to'] = data['to']['number']
+    elif channel_type == "sms":
+        user['type'] = channel_type
+        user['from'] = data['msisdn']
+        user['to'] = data['to']        
     else:
         # Viber does not support inbound messages
         print("ERROR: unrecognized channel type")
@@ -70,3 +76,4 @@ def proc_inbound_msg(data):
 
     client.send_message(user['type'], user['to'], user['from'], msg)
     return
+
