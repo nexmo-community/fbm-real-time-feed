@@ -8,8 +8,15 @@ Planning to uses a **simulated** real-time feed of stock prices.
 
 **STATUS:** work in progress...
 
-* Client tested with FBM, SMS
-* Real-time feed working on FBM
-* Real-time feed working on SMS
-
+- Client tested with: 
+  - [x] FBM
+  - [x] SMS
+  - [x] Viber
+  - [ ] WhatsApp
+- Real-time feed working on:
+  - [x] FBM
+  - [x] SMS
+  - [ ] Viber
+  - [ ] WhatsApp
+  
 ---
