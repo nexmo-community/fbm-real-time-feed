@@ -2,6 +2,7 @@
 private.key
 .env
 *.sh
+*.key
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
