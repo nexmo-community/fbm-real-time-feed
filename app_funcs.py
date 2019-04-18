@@ -2,6 +2,8 @@ import sys
 from threading import Timer
 from Client.Client import Client
 
+VIBER_ID = ""
+
 # Simulation of our real-time data feed
 # Arrays should be of same length
 prices = {
@@ -15,6 +17,16 @@ tic_count = 0
 NEXMO_APP_ID = sys.argv[1]
 print("Nexmo App ID: %s" % NEXMO_APP_ID)
 client = Client(NEXMO_APP_ID, "private.key")
+
+# Your web interface calls this with user data as Viber does not support inbound message to business
+def register_viber_user(symbol, number):
+    user = {}
+    user['type'] = "viber_service_msg"
+    user['symbol'] = symbol
+    user['from'] = number
+    user['to'] = VIBER_ID
+    users.append(user)
+    return
 
 def update_users():
     print("** update_users **")
