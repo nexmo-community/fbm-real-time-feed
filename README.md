@@ -16,7 +16,7 @@ Planning to uses a **simulated** real-time feed of stock prices.
 - Real-time feed working on:
   - [x] FBM
   - [x] SMS
-  - [ ] Viber
+  - [x] Viber
   - [ ] WhatsApp
   
 ---
